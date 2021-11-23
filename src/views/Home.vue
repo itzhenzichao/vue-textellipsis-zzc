@@ -1,20 +1,11 @@
-# vue-textellipsis-zzc
-
-## Install
-```
-npm install vue-textellipsis-zzc --save
-```
-
-### Usage
-
-```
 <template>
   <div class="home">
     <div style="width: 200px">
       <text-ellipsis
         :text="text"
         :height="50"
-        :textStyle="style"
+        :textStyle="textStyle"
+        :textClass="textClass"
         :isLimitHeight="isLimitHeight"
         @click="textClick"
       >
@@ -36,6 +27,7 @@ npm install vue-textellipsis-zzc --save
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "Home",
@@ -53,6 +45,6 @@ export default {
 };
 </script>
 <style>
-.yourClass {}
+.yourClass {
+}
 </style>
-```
