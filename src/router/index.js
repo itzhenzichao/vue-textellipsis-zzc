@@ -1,27 +1,36 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Textellipsis from "../views/Textellipsis.vue";
+import Error from "../views/Error.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    redirect: "/textellipsis",
   },
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  // },
+  {
+    path: "/textellipsis",
+    name: "Textellipsis",
+    component: Textellipsis,
+  },
+  {
+    path: "*",
+    name: "Error",
+    component: Error,
+  },
 ];
 
+// qiankun 环境下 base 为主应用分配的路由前缀
+// 独立运行时 base 为子应用自己的部署路径
+const base = window.__POWERED_BY_QIANKUN__
+  ? "/vue2-plugins/vue-textellipsis-zzc"
+  : "/vue-textellipsis-zzc";
+
 const router = new VueRouter({
+  mode: "history",
+  base,
   routes,
 });
 
