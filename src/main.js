@@ -1,5 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
+import Textellipsis from "./views/Textellipsis.vue";
 import router from "./router";
 import store from "./store";
 import textellipsis from "@/plugins/index.js";
@@ -11,15 +12,14 @@ let app = null;
 
 function render(container) {
   if (container) {
-    // qiankun 环境：带路由渲染，子应用内部路由跳转正常工作
+    // qiankun 环境：hash 模式下主应用和子应用共用 hash，子应用无法独立路由
+    // 直接渲染 Textellipsis.vue，不走 router
     app = new Vue({
-      router,
-      store,
-      render: (h) => h(App),
+      render: (h) => h(Textellipsis),
     }).$mount();
     container.appendChild(app.$el);
   } else {
-    // 独立运行
+    // 独立运行：完整 SPA，带路由
     app = new Vue({
       router,
       store,

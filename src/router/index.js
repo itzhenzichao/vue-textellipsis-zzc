@@ -22,15 +22,9 @@ const routes = [
   },
 ];
 
-// qiankun 环境下 base 为主应用分配的路由前缀
-// 独立运行时 base 为子应用自己的部署路径
-const base = window.__POWERED_BY_QIANKUN__
-  ? "/vue2-plugins/vue-textellipsis-zzc"
-  : "/vue-textellipsis-zzc";
-
 const router = new VueRouter({
-  mode: "history",
-  base,
+  mode: "hash",
+  base: "/vue-textellipsis-zzc/",
   routes,
 });
 
