@@ -45,6 +45,6 @@ async function unmount() {
   app = null;
 }
 
-window.textellipsisApp = { bootstrap, mount, unmount };
+window["textellipsis"] = { bootstrap, mount, unmount };
 
 export { bootstrap, mount, unmount };
